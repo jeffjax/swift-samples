@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F5A0000197EF4B0006980B8 /* PointAlongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5AFFFE197EF4B0006980B8 /* PointAlongViewController.swift */; };
+		1F5A0001197EF4B0006980B8 /* PointAlongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5AFFFF197EF4B0006980B8 /* PointAlongViewController.xib */; };
 		1F5DF0E5197EE96E0060633D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5DF0E4197EE96E0060633D /* MainViewController.swift */; };
 		1F689026197EEB7D00D256E2 /* SimpleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F689024197EEB7D00D256E2 /* SimpleMapViewController.swift */; };
 		1F689027197EEB7D00D256E2 /* SimpleMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F689025197EEB7D00D256E2 /* SimpleMapViewController.xib */; };
@@ -16,6 +18,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1F21DFDF197EF3A00056E5D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F21DFDA197EF39F0056E5D5 /* arcgis-additions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F21DFBE197EF39F0056E5D5;
+			remoteInfo = "arcgis-additions";
+		};
+		1F21DFE1197EF3A00056E5D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F21DFDA197EF39F0056E5D5 /* arcgis-additions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F21DFC9197EF39F0056E5D5;
+			remoteInfo = "arcgis-additionsTests";
+		};
 		1F845BF4197EE8A5009ECD87 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F845BD9197EE8A4009ECD87 /* Project object */;
@@ -26,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F21DFDA197EF39F0056E5D5 /* arcgis-additions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "arcgis-additions.xcodeproj"; path = "arcgis-additions/arcgis-additions.xcodeproj"; sourceTree = "<group>"; };
+		1F5AFFFE197EF4B0006980B8 /* PointAlongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointAlongViewController.swift; sourceTree = "<group>"; };
+		1F5AFFFF197EF4B0006980B8 /* PointAlongViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointAlongViewController.xib; sourceTree = "<group>"; };
 		1F5DF0E4197EE96E0060633D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1F689024197EEB7D00D256E2 /* SimpleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMapViewController.swift; sourceTree = "<group>"; };
 		1F689025197EEB7D00D256E2 /* SimpleMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleMapViewController.xib; sourceTree = "<group>"; };
@@ -56,12 +75,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F21DFDB197EF39F0056E5D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F21DFE0197EF3A00056E5D5 /* arcgis-additions.framework */,
+				1F21DFE2197EF3A00056E5D5 /* arcgis-additionsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1F845BD8197EE8A4009ECD87 = {
 			isa = PBXGroup;
 			children = (
 				1F845BE3197EE8A4009ECD87 /* swift-samples */,
 				1F845BF6197EE8A5009ECD87 /* swift-samplesTests */,
 				1F845BE2197EE8A4009ECD87 /* Products */,
+				1F21DFDA197EF39F0056E5D5 /* arcgis-additions.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +112,8 @@
 				1F5DF0E4197EE96E0060633D /* MainViewController.swift */,
 				1F689024197EEB7D00D256E2 /* SimpleMapViewController.swift */,
 				1F689025197EEB7D00D256E2 /* SimpleMapViewController.xib */,
+				1F5AFFFE197EF4B0006980B8 /* PointAlongViewController.swift */,
+				1F5AFFFF197EF4B0006980B8 /* PointAlongViewController.xib */,
 			);
 			path = "swift-samples";
 			sourceTree = "<group>";
@@ -179,6 +210,12 @@
 			mainGroup = 1F845BD8197EE8A4009ECD87;
 			productRefGroup = 1F845BE2197EE8A4009ECD87 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1F21DFDB197EF39F0056E5D5 /* Products */;
+					ProjectRef = 1F21DFDA197EF39F0056E5D5 /* arcgis-additions.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1F845BE0197EE8A4009ECD87 /* swift-samples */,
@@ -187,6 +224,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		1F21DFE0197EF3A00056E5D5 /* arcgis-additions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = "arcgis-additions.framework";
+			remoteRef = 1F21DFDF197EF3A00056E5D5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F21DFE2197EF3A00056E5D5 /* arcgis-additionsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "arcgis-additionsTests.xctest";
+			remoteRef = 1F21DFE1197EF3A00056E5D5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		1F845BDF197EE8A4009ECD87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -194,6 +248,7 @@
 			files = (
 				1F845BEE197EE8A4009ECD87 /* Images.xcassets in Resources */,
 				1F689027197EEB7D00D256E2 /* SimpleMapViewController.xib in Resources */,
+				1F5A0001197EF4B0006980B8 /* PointAlongViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +269,7 @@
 				1F689026197EEB7D00D256E2 /* SimpleMapViewController.swift in Sources */,
 				1F845BE7197EE8A4009ECD87 /* AppDelegate.swift in Sources */,
 				1F5DF0E5197EE96E0060633D /* MainViewController.swift in Sources */,
+				1F5A0000197EF4B0006980B8 /* PointAlongViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

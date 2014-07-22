@@ -24,7 +24,10 @@ class MainViewController: UITableViewController {
 
     // all of the samples contained in the project, organized into an array
     //
-    let samples = [ Sample(name: "Simple Map") { return SimpleMapViewController()} ]
+    let samples = [
+        Sample(name: "Simple Map") { return SimpleMapViewController()},
+        Sample(name: "Point Along Polyline") { return PointAlongViewController()}
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
