@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F5DF0E5197EE96E0060633D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5DF0E4197EE96E0060633D /* MainViewController.swift */; };
+		1F689026197EEB7D00D256E2 /* SimpleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F689024197EEB7D00D256E2 /* SimpleMapViewController.swift */; };
+		1F689027197EEB7D00D256E2 /* SimpleMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F689025197EEB7D00D256E2 /* SimpleMapViewController.xib */; };
 		1F845BE7197EE8A4009ECD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F845BE6197EE8A4009ECD87 /* AppDelegate.swift */; };
-		1F845BE9197EE8A4009ECD87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F845BE8197EE8A4009ECD87 /* ViewController.swift */; };
-		1F845BEC197EE8A4009ECD87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F845BEA197EE8A4009ECD87 /* Main.storyboard */; };
 		1F845BEE197EE8A4009ECD87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F845BED197EE8A4009ECD87 /* Images.xcassets */; };
 		1F845BFA197EE8A5009ECD87 /* swift_samplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F845BF9197EE8A5009ECD87 /* swift_samplesTests.swift */; };
 /* End PBXBuildFile section */
@@ -25,11 +26,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F5DF0E4197EE96E0060633D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1F689024197EEB7D00D256E2 /* SimpleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMapViewController.swift; sourceTree = "<group>"; };
+		1F689025197EEB7D00D256E2 /* SimpleMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleMapViewController.xib; sourceTree = "<group>"; };
 		1F845BE1197EE8A4009ECD87 /* swift-samples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-samples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F845BE5197EE8A4009ECD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F845BE6197EE8A4009ECD87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F845BE8197EE8A4009ECD87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1F845BEB197EE8A4009ECD87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F845BED197EE8A4009ECD87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1F845BF3197EE8A5009ECD87 /* swift-samplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-samplesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F845BF8197EE8A5009ECD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,10 +78,11 @@
 			isa = PBXGroup;
 			children = (
 				1F845BE6197EE8A4009ECD87 /* AppDelegate.swift */,
-				1F845BE8197EE8A4009ECD87 /* ViewController.swift */,
-				1F845BEA197EE8A4009ECD87 /* Main.storyboard */,
 				1F845BED197EE8A4009ECD87 /* Images.xcassets */,
 				1F845BE4197EE8A4009ECD87 /* Supporting Files */,
+				1F5DF0E4197EE96E0060633D /* MainViewController.swift */,
+				1F689024197EEB7D00D256E2 /* SimpleMapViewController.swift */,
+				1F689025197EEB7D00D256E2 /* SimpleMapViewController.xib */,
 			);
 			path = "swift-samples";
 			sourceTree = "<group>";
@@ -189,8 +192,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F845BEC197EE8A4009ECD87 /* Main.storyboard in Resources */,
 				1F845BEE197EE8A4009ECD87 /* Images.xcassets in Resources */,
+				1F689027197EEB7D00D256E2 /* SimpleMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F845BE9197EE8A4009ECD87 /* ViewController.swift in Sources */,
+				1F689026197EEB7D00D256E2 /* SimpleMapViewController.swift in Sources */,
 				1F845BE7197EE8A4009ECD87 /* AppDelegate.swift in Sources */,
+				1F5DF0E5197EE96E0060633D /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,17 +234,6 @@
 			targetProxy = 1F845BF4197EE8A5009ECD87 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		1F845BEA197EE8A4009ECD87 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F845BEB197EE8A4009ECD87 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1F845BFB197EE8A5009ECD87 /* Debug */ = {
@@ -327,8 +320,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "~/Library/SDKs/ArcGIS/iOS";
 				INFOPLIST_FILE = "swift-samples/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					ArcGIS,
+					"-ObjC",
+					"-l",
+					"c++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -338,8 +340,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "~/Library/SDKs/ArcGIS/iOS";
 				INFOPLIST_FILE = "swift-samples/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					ArcGIS,
+					"-ObjC",
+					"-l",
+					"c++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -397,6 +408,7 @@
 				1F845BFF197EE8A5009ECD87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F845C00197EE8A5009ECD87 /* Build configuration list for PBXNativeTarget "swift-samplesTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +417,7 @@
 				1F845C02197EE8A5009ECD87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
