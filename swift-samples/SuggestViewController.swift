@@ -10,16 +10,12 @@ import ArcGIS
 
 class SuggestViewController: UIViewController {
 
-    @IBOutlet weak var mapView: AGSMapView!
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        navigationItem.title = "Search Suggestions"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: Selector("showSearch:"))
-    }
+    @IBOutlet weak var mapView: AGSMapView! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: Selector("showSearch:"))
 
         let layer = AGSTiledMapServiceLayer(URL: NSURL(string: "http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer"))
         mapView.addMapLayer(layer)
@@ -29,6 +25,7 @@ class SuggestViewController: UIViewController {
     }
     
     func showSearch(sender: AnyObject) {
-        
+        let searchVC = SearchViewController(mapView: mapView) { self.dismissPopover() }
+        presentPopoverForController(searchVC, barButtonItem: sender as UIBarButtonItem, size: CGSize(width: 300, height: 550))
     }
 }
