@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Esri. All rights reserved.
 //
 
-import UIKit
+import ArcGIS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
+
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.tintColor = UIColor.orangeColor()
         self.window!.rootViewController = UINavigationController(rootViewController: MainViewController(nibName: nil, bundle: nil))

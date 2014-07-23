@@ -14,6 +14,7 @@ class SimpleMapViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
+        navigationItem.title = "Simple Map"
     }
     
     override func viewDidLoad() {
