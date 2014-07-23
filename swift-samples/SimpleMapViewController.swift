@@ -5,6 +5,8 @@
 //  Created by Jeff Jackson on 7/22/14.
 //  Copyright (c) 2014 Esri. All rights reserved.
 //
+//  This sample shows how to display a map in a map view with a few lines of code.
+//
 
 import ArcGIS
 

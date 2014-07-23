@@ -4,6 +4,8 @@
 //
 //  Created by Jeff Jackson on 7/22/14.
 //  Copyright (c) 2014 Esri. All rights reserved.
+//  
+//  This sample uses the AGSPolyline.pointAlong() method to display mile markers along a route on the map.
 //
 
 import ArcGIS
@@ -29,15 +31,19 @@ class PointAlongViewController: UIViewController {
     
     var endPointSymbol : AGSMarkerSymbol { get {
         let symbol = AGSSimpleMarkerSymbol(color: UIColor.orangeColor())
-        symbol.size = CGSize(width: 25, height: 25)
+        symbol.size = CGSize(width: 18, height: 18)
         symbol.style = AGSSimpleMarkerSymbolStyleDiamond
-        symbol.outline = nil
+        symbol.outline.color = UIColor.whiteColor()
         return symbol
     }}
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        navigationItem.title = "Poing Along Polyline"
+        navigationItem.title = "Point Along"
+        
+        // add a button to reverse the direction of the route
+        //
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reverse", style: .Plain, target: self, action: Selector("reverseDirection:"))
     }
 
     override func viewDidLoad() {
@@ -49,27 +55,78 @@ class PointAlongViewController: UIViewController {
         mapView.addMapLayer(routeLayer)
         mapView.addMapLayer(markerLayer)
         
-        // create a the polyline and add it
+        // setup the polyline
         //
-        let line = AGSMutablePolyline()
-        line.addPathToPolyline()
+        let polyline = AGSMutablePolyline(spatialReference: AGSSpatialReference(WKID: 102100))
+        polyline.addPathToPolyline()
         
         for point in points {
-            line.addPointToPath(point)
+            polyline.addPointToPath(point)
         }
         
         let lineColor = UIColor(red: 0.243, green: 0.6, blue: 0.964, alpha: 0.75)
-        routeLayer.addGraphic(AGSGraphic(geometry: line, symbol: AGSSimpleLineSymbol(color: lineColor, width: 8), attributes: nil))
+        routeLayer.addGraphic(AGSGraphic(geometry: polyline, symbol: AGSSimpleLineSymbol(color: lineColor, width: 8), attributes: nil))
        
         // add graphcis to show the end points
         //
         routeLayer.addGraphic(AGSGraphic(geometry: points[0], symbol: endPointSymbol, attributes: nil))
         routeLayer.addGraphic(AGSGraphic(geometry: points[points.count - 1], symbol: endPointSymbol, attributes: nil))
         
+        generateMileMarkers()
+        
         // zoom into the area
         //
-        mapView.zoomToEnvelope(line.envelope, animated: true)
+        mapView.zoomToExpandedEnvelope(polyline.envelope, factor: 1.5)
     }
     
+    // generates points along the route at every mile
+    //
+    func generateMileMarkers() {
+        markerLayer.removeAllGraphics()
+        
+        if let polyline = routeLayer.graphics[0].geometry as? AGSPolyline {
+            
+            let length = AGSGeometryEngine.defaultGeometryEngine().lengthOfGeometry(polyline)
+            var distance : Double = AGSUnitsToUnits(1, AGSUnitsMiles, AGSUnitsMeters)
+            
+            for var mile = 1; distance < length; mile++ {
+                if let point = polyline.pointAlong(distance) {
+                    let graphic = AGSGraphic(geometry: point, symbol: mileMarkerSymbol(mile), attributes: nil)
+                    markerLayer.addGraphic(graphic)
+                } else {
+                    break
+                }
+                distance += AGSUnitsToUnits(1, AGSUnitsMiles, AGSUnitsMeters)
+            }
+        }
+    }
+    
+    // creates a multi-layer point symbol that shows the mile number
+    //
+    func mileMarkerSymbol(mile: Int) -> AGSSymbol {
+        
+        let bg = AGSSimpleMarkerSymbol(color: UIColor.orangeColor())
+        bg.size = CGSize(width: 20, height: 20)
+        bg.style = AGSSimpleMarkerSymbolStyleCircle
+        bg.outline = nil
+        
+        let ts = AGSTextSymbol(text: NSString(format: "%d", mile), color: UIColor.whiteColor() )
+        
+        let cs = AGSCompositeSymbol()
+        cs.addSymbol(bg)
+        cs.addSymbol(ts)
+        
+        return cs
+    }
+
+    // reverses the direction of the polyline that represents the route
+    //
+    func reverseDirection(sender: AnyObject) {
+        let graphic = routeLayer.graphics[0] as AGSGraphic
+        if let polyline = graphic.geometry as? AGSPolyline {
+            graphic.geometry = polyline.reverseDirection()
+            generateMileMarkers()
+        }
+    }
 
 }

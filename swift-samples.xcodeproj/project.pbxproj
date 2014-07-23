@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3A5558197FE57700B15F41 /* AGSMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A5557197FE57700B15F41 /* AGSMapView.swift */; };
+		1F3A555A197FE58100B15F41 /* AGSPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A5559197FE58100B15F41 /* AGSPolyline.swift */; };
 		1F5A0000197EF4B0006980B8 /* PointAlongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5AFFFE197EF4B0006980B8 /* PointAlongViewController.swift */; };
 		1F5A0001197EF4B0006980B8 /* PointAlongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5AFFFF197EF4B0006980B8 /* PointAlongViewController.xib */; };
 		1F5DF0E5197EE96E0060633D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5DF0E4197EE96E0060633D /* MainViewController.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F3A5557197FE57700B15F41 /* AGSMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGSMapView.swift; sourceTree = "<group>"; };
+		1F3A5559197FE58100B15F41 /* AGSPolyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGSPolyline.swift; sourceTree = "<group>"; };
 		1F5AFFFE197EF4B0006980B8 /* PointAlongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointAlongViewController.swift; sourceTree = "<group>"; };
 		1F5AFFFF197EF4B0006980B8 /* PointAlongViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointAlongViewController.xib; sourceTree = "<group>"; };
 		1F5DF0E4197EE96E0060633D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -60,9 +64,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F3A5556197FE55F00B15F41 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				1F3A5557197FE57700B15F41 /* AGSMapView.swift */,
+				1F3A5559197FE58100B15F41 /* AGSPolyline.swift */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
 		1F845BD8197EE8A4009ECD87 = {
 			isa = PBXGroup;
 			children = (
+				1F3A5556197FE55F00B15F41 /* Additions */,
 				1F845BE3197EE8A4009ECD87 /* swift-samples */,
 				1F845BF6197EE8A5009ECD87 /* swift-samplesTests */,
 				1F845BE2197EE8A4009ECD87 /* Products */,
@@ -218,8 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3A5558197FE57700B15F41 /* AGSMapView.swift in Sources */,
 				1F689026197EEB7D00D256E2 /* SimpleMapViewController.swift in Sources */,
 				1F845BE7197EE8A4009ECD87 /* AppDelegate.swift in Sources */,
+				1F3A555A197FE58100B15F41 /* AGSPolyline.swift in Sources */,
 				1F5DF0E5197EE96E0060633D /* MainViewController.swift in Sources */,
 				1F5A0000197EF4B0006980B8 /* PointAlongViewController.swift in Sources */,
 			);
