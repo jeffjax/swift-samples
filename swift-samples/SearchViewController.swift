@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var searchBar: UISearchBar! = nil
     @IBOutlet weak var tableView: UITableView! = nil
     var mapView : AGSMapView
+    var graphicsLayer : AGSGraphicsLayer
     var completion : () -> Void
     
     let locator = AGSLocator(URL: NSURL(string: "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"))
@@ -24,7 +25,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     init(mapView: AGSMapView, completion : () -> Void) {
         self.mapView = mapView
+        self.graphicsLayer = mapView.mapLayerForName("Graphics") as AGSGraphicsLayer
         self.completion = completion
+        
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -69,6 +72,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         if let suggestions = suggestions {
             searchSuggestion(suggestions[indexPath.row])
+        } else if let findResults = findResults {
+            graphicsLayer.removeAllGraphics()
+            graphicsLayer.addGraphic(findResults[indexPath.row].graphic)
         }
     }
     
