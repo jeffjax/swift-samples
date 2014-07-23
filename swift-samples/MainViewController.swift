@@ -52,6 +52,6 @@ class MainViewController: UITableViewController {
         //
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         navigationController.pushViewController(samples[indexPath.row].constructor(), animated: true)
+        navigationItem.title = samples[indexPath.row].name
     }
- 
 }

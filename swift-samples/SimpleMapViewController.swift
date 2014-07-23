@@ -12,12 +12,7 @@ import ArcGIS
 
 class SimpleMapViewController: UIViewController {
 
-    @IBOutlet weak var mapView: AGSMapView!
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        navigationItem.title = "Simple Map"
-    }
+    @IBOutlet weak var mapView: AGSMapView! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,5 +23,4 @@ class SimpleMapViewController: UIViewController {
         let center = AGSPoint.pointWithX(-7822565, y: 5413016, spatialReference: nil)
         mapView.zoomToScale(72112, withCenterPoint:center, animated: true)
     }
-
 }
