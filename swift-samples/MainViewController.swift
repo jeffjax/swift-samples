@@ -26,8 +26,10 @@ class MainViewController: UITableViewController {
     //
     let samples = [
         Sample(name: "Simple Map") { return SimpleMapViewController()},
-        Sample(name: "Point Along Polyline") { return PointAlongViewController()}
-    ]
+        Sample(name: "Point Along Polyline") { return PointAlongViewController()},
+        Sample(name: "Search Suggestions") { return SuggestViewController()}
+        ]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
