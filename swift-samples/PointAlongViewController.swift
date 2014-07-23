@@ -14,7 +14,7 @@ let topoServer = "http://services.arcgisonline.com/arcgis/rest/services/World_To
 
 class PointAlongViewController: UIViewController {
 
-    @IBOutlet weak var mapView: AGSMapView!
+    @IBOutlet weak var mapView: AGSMapView! = nil
     
     let routeLayer = AGSGraphicsLayer(fullEnvelope: nil, renderingMode: AGSGraphicsLayerRenderingModeDynamic)
     let markerLayer = AGSGraphicsLayer(fullEnvelope: nil, renderingMode: AGSGraphicsLayerRenderingModeDynamic)
@@ -37,18 +37,12 @@ class PointAlongViewController: UIViewController {
         return symbol
     }}
 
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        navigationItem.title = "Point Along"
-        
-        // add a button to reverse the direction of the route
-        //
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reverse", style: .Plain, target: self, action: Selector("reverseDirection:"))
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // setup our UI
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reverse", style: .Plain, target: self, action: Selector("reverseDirection:"))
+
         // setup the map layers
         //
         mapView.addMapLayer(AGSTiledMapServiceLayer(URL: NSURL(string: topoServer)))
