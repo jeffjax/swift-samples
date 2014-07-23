@@ -87,6 +87,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
     }
     
+    // Find the suggestions for a string.
+    //
     func findSuggestions(searchText: String) {
         let params = AGSLocatorFindParameters()
         params.text = searchText
@@ -107,6 +109,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         })
     }
     
+    // Given a suggestion, perform a search and get back a place.
+    //
     func searchSuggestion(suggestion: AGSLocatorSuggestion) {
         isSearching = true
         suggestions = nil
