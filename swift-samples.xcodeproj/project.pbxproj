@@ -17,6 +17,13 @@
 		1F845BE7197EE8A4009ECD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F845BE6197EE8A4009ECD87 /* AppDelegate.swift */; };
 		1F845BEE197EE8A4009ECD87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F845BED197EE8A4009ECD87 /* Images.xcassets */; };
 		1F845BFA197EE8A5009ECD87 /* swift_samplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F845BF9197EE8A5009ECD87 /* swift_samplesTests.swift */; };
+		1FD787B419800D5D00681DDB /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD787B219800D5D00681DDB /* SuggestViewController.swift */; };
+		1FD787B519800D5D00681DDB /* SuggestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD787B319800D5D00681DDB /* SuggestViewController.xib */; };
+		1FD787B719802F5900681DDB /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD787B619802F5900681DDB /* UIViewController.swift */; };
+		1FD787BA1980318900681DDB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD787B81980318900681DDB /* SearchViewController.swift */; };
+		1FD787BB1980318900681DDB /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD787B91980318900681DDB /* SearchViewController.xib */; };
+		1FD787BD19803B2900681DDB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD787BC19803B2900681DDB /* Utils.swift */; };
+		1FD787BF19803C0B00681DDB /* AGSLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD787BE19803C0B00681DDB /* AGSLocator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		1F845BF3197EE8A5009ECD87 /* swift-samplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-samplesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F845BF8197EE8A5009ECD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F845BF9197EE8A5009ECD87 /* swift_samplesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_samplesTests.swift; sourceTree = "<group>"; };
+		1FD787B219800D5D00681DDB /* SuggestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestViewController.swift; sourceTree = "<group>"; };
+		1FD787B319800D5D00681DDB /* SuggestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestViewController.xib; sourceTree = "<group>"; };
+		1FD787B619802F5900681DDB /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		1FD787B81980318900681DDB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1FD787B91980318900681DDB /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		1FD787BC19803B2900681DDB /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1FD787BE19803C0B00681DDB /* AGSLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGSLocator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +83,9 @@
 			children = (
 				1F3A5557197FE57700B15F41 /* AGSMapView.swift */,
 				1F3A5559197FE58100B15F41 /* AGSPolyline.swift */,
+				1FD787B619802F5900681DDB /* UIViewController.swift */,
+				1FD787BC19803B2900681DDB /* Utils.swift */,
+				1FD787BE19803C0B00681DDB /* AGSLocator.swift */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -97,12 +114,11 @@
 			children = (
 				1F845BE6197EE8A4009ECD87 /* AppDelegate.swift */,
 				1F845BED197EE8A4009ECD87 /* Images.xcassets */,
-				1F845BE4197EE8A4009ECD87 /* Supporting Files */,
 				1F5DF0E4197EE96E0060633D /* MainViewController.swift */,
-				1F689024197EEB7D00D256E2 /* SimpleMapViewController.swift */,
-				1F689025197EEB7D00D256E2 /* SimpleMapViewController.xib */,
-				1F5AFFFE197EF4B0006980B8 /* PointAlongViewController.swift */,
-				1F5AFFFF197EF4B0006980B8 /* PointAlongViewController.xib */,
+				1FD787B019800D1D00681DDB /* PointAlong */,
+				1FD787AF19800D0600681DDB /* SimpleMap */,
+				1FD787B119800D2500681DDB /* Suggest */,
+				1F845BE4197EE8A4009ECD87 /* Supporting Files */,
 			);
 			path = "swift-samples";
 			sourceTree = "<group>";
@@ -130,6 +146,35 @@
 				1F845BF8197EE8A5009ECD87 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1FD787AF19800D0600681DDB /* SimpleMap */ = {
+			isa = PBXGroup;
+			children = (
+				1F689024197EEB7D00D256E2 /* SimpleMapViewController.swift */,
+				1F689025197EEB7D00D256E2 /* SimpleMapViewController.xib */,
+			);
+			name = SimpleMap;
+			sourceTree = "<group>";
+		};
+		1FD787B019800D1D00681DDB /* PointAlong */ = {
+			isa = PBXGroup;
+			children = (
+				1F5AFFFE197EF4B0006980B8 /* PointAlongViewController.swift */,
+				1F5AFFFF197EF4B0006980B8 /* PointAlongViewController.xib */,
+			);
+			name = PointAlong;
+			sourceTree = "<group>";
+		};
+		1FD787B119800D2500681DDB /* Suggest */ = {
+			isa = PBXGroup;
+			children = (
+				1FD787B219800D5D00681DDB /* SuggestViewController.swift */,
+				1FD787B319800D5D00681DDB /* SuggestViewController.xib */,
+				1FD787B81980318900681DDB /* SearchViewController.swift */,
+				1FD787B91980318900681DDB /* SearchViewController.xib */,
+			);
+			name = Suggest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +260,8 @@
 				1F845BEE197EE8A4009ECD87 /* Images.xcassets in Resources */,
 				1F689027197EEB7D00D256E2 /* SimpleMapViewController.xib in Resources */,
 				1F5A0001197EF4B0006980B8 /* PointAlongViewController.xib in Resources */,
+				1FD787BB1980318900681DDB /* SearchViewController.xib in Resources */,
+				1FD787B519800D5D00681DDB /* SuggestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,8 +282,13 @@
 				1F3A5558197FE57700B15F41 /* AGSMapView.swift in Sources */,
 				1F689026197EEB7D00D256E2 /* SimpleMapViewController.swift in Sources */,
 				1F845BE7197EE8A4009ECD87 /* AppDelegate.swift in Sources */,
+				1FD787BF19803C0B00681DDB /* AGSLocator.swift in Sources */,
+				1FD787BA1980318900681DDB /* SearchViewController.swift in Sources */,
 				1F3A555A197FE58100B15F41 /* AGSPolyline.swift in Sources */,
+				1FD787BD19803B2900681DDB /* Utils.swift in Sources */,
+				1FD787B419800D5D00681DDB /* SuggestViewController.swift in Sources */,
 				1F5DF0E5197EE96E0060633D /* MainViewController.swift in Sources */,
+				1FD787B719802F5900681DDB /* UIViewController.swift in Sources */,
 				1F5A0000197EF4B0006980B8 /* PointAlongViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
