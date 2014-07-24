@@ -8,7 +8,7 @@
 
 import ArcGIS
 
-class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, AGSLocatorDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar! = nil
     @IBOutlet weak var tableView: UITableView! = nil
@@ -22,7 +22,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     var isSearching = false
 
     var suggestions : [AGSLocatorSuggestion]?
-    var findResults : [AGSLocatorSuggestionFindResult]?
+    var findResults : [AGSLocatorFindResult]?
     
     init(mapView: AGSMapView, completion : () -> Void) {
         self.mapView = mapView
@@ -97,6 +97,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
     }
     
+    // MARK: Search methods
+    
     // Find the suggestions for a string.
     //
     func findSuggestions(searchText: String) {
@@ -130,26 +132,19 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             tableView.reloadData()
         }
         
-        let params = AGSLocatorFindParameters()
+        let params = AGSLocatorMagicFindParameters()
+        params.magicKey = suggestion.magicKey
         params.text = suggestion.text
         params.outSpatialReference = mapView.spatialReference
         params.maxLocations = suggestion.isCollection ? 5 : 1
         
-        locator.findSuggestion(suggestion, params: params, { (results: [AGSLocatorSuggestionFindResult]?, error: NSError?) -> Void in
-            self.isSearching = false
-            
-            if suggestion.isCollection {
-                self.findResults = results
-                self.tableView.reloadData()
-            } else {
-                self.showFindResult(results![0])
-            }
-        })
+        locator.delegate = self
+        locator.findWithParameters(params)
     }
     
     // Show the find results on the map.
     //
-    func showFindResult(result: AGSLocatorSuggestionFindResult) {
+    func showFindResult(result: AGSLocatorFindResult) {
         
         // on the phone, close this view controller so we can see the result on
         // the map
@@ -169,5 +164,26 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             mapView.centerAtPoint(extent.center, animated: true)
         }
     }
-}
+
+    // MARK: AGSLocatorDelegate
+    //
+    func locator(locator: AGSLocator!, operation op: NSOperation!, didFailToFindWithError error: NSError!) {
+        self.isSearching = false
+    }
+    
+    func locator(locator: AGSLocator!, operation op: NSOperation!, didFind results: [AnyObject]!) {
+        self.isSearching = false
+        
+        if let results = results as? [AGSLocatorFindResult] {
+            if results.count > 1 {
+                findResults = results
+                self.tableView.reloadData()
+            } else {
+                self.showFindResult(results[0])
+            }
+        }
+       
+    }
+    
+ }
 
