@@ -8,6 +8,8 @@
 
 import ArcGIS
 
+// Represents the result of a request to retrieve suggestions.
+//
 class AGSLocatorSuggestion : NSObject, AGSCoding {
     
     var text: String!
