@@ -60,7 +60,7 @@ class AGSLocatorMagicFindParameters : AGSLocatorFindParameters {
     }
 }
 
-extension AGSLocator : AGSLocatorDelegate {
+extension AGSLocator {
     
     // Returns suggestions for the specified find parameters.
     //
