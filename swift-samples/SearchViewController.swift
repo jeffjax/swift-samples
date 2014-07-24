@@ -12,9 +12,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
 
     @IBOutlet weak var searchBar: UISearchBar! = nil
     @IBOutlet weak var tableView: UITableView! = nil
+    
     var mapView : AGSMapView
-    var graphicsLayer : AGSGraphicsLayer
-    var completion : () -> Void
+    var graphicsLayer : AGSGraphicsLayer // graphics layer for feedback on the map
+    var completion : () -> Void   // completion block for the iPhone
     
     let locator = AGSLocator(URL: NSURL(string: "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"))
     var lastSearch : String?
@@ -33,6 +34,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = .None;
 
         navigationItem.title = "Search"
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CONTENT")
@@ -70,11 +72,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         if let suggestions = suggestions {
             searchSuggestion(suggestions[indexPath.row])
         } else if let findResults = findResults {
-            graphicsLayer.removeAllGraphics()
-            graphicsLayer.addGraphic(findResults[indexPath.row].graphic)
+            showFindResult(findResults[indexPath.row])
         }
     }
     
@@ -89,7 +91,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             }
         } else {
             suggestions = nil
+            findResults = nil
             tableView.reloadData()
+            graphicsLayer.removeAllGraphics()
         }
     }
     
@@ -119,19 +123,51 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     //
     func searchSuggestion(suggestion: AGSLocatorSuggestion) {
         isSearching = true
-        suggestions = nil
         findResults = nil
-        tableView.reloadData()
+        
+        if suggestion.isCollection {
+            suggestions = nil
+            tableView.reloadData()
+        }
         
         let params = AGSLocatorFindParameters()
         params.text = suggestion.text
+        params.outSpatialReference = mapView.spatialReference
         params.maxLocations = suggestion.isCollection ? 5 : 1
         
         locator.findSuggestion(suggestion, params: params, { (results: [AGSLocatorSuggestionFindResult]?, error: NSError?) -> Void in
             self.isSearching = false
-            self.findResults = results
-            self.tableView.reloadData()
+            
+            if suggestion.isCollection {
+                self.findResults = results
+                self.tableView.reloadData()
+            } else {
+                self.showFindResult(results![0])
+            }
         })
+    }
+    
+    // Show the find results on the map.
+    //
+    func showFindResult(result: AGSLocatorSuggestionFindResult) {
+        
+        // on the phone, close this view controller so we can see the result on
+        // the map
+        //
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            completion()
+        }
+        
+        graphicsLayer.removeAllGraphics()
+        graphicsLayer.addGraphic(result.graphic)
+        
+        let extent = result.extent
+        if extent.width > 0 && extent.height > 0 {
+            mapView.zoomToExpandedEnvelope(extent, factor: 1.5)
+            
+        } else {
+            mapView.centerAtPoint(extent.center, animated: true)
+        }
     }
 }
 

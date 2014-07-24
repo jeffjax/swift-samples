@@ -12,6 +12,8 @@ class SuggestViewController: UIViewController {
 
     @IBOutlet weak var mapView: AGSMapView! = nil
     
+    var searchVC : SearchViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +40,9 @@ class SuggestViewController: UIViewController {
 
     
     func showSearch(sender: AnyObject) {
-        let searchVC = SearchViewController(mapView: mapView) { self.dismissPopover() }
-        presentPopoverForController(searchVC, barButtonItem: sender as UIBarButtonItem, size: CGSize(width: 300, height: 550))
+        if searchVC == nil {
+            searchVC = SearchViewController(mapView: mapView) { self.dismissPopover() }
+        }
+        presentPopoverForController(searchVC!, barButtonItem: sender as UIBarButtonItem, size: CGSize(width: 300, height: 550))
     }
 }
