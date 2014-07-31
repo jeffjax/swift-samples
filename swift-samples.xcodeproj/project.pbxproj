@@ -119,13 +119,13 @@
 		1F845BE3197EE8A4009ECD87 /* swift-samples */ = {
 			isa = PBXGroup;
 			children = (
-				4B6D8D3319878680007CC028 /* QueryWithCompletion */,
 				1F845BE6197EE8A4009ECD87 /* AppDelegate.swift */,
 				1F845BED197EE8A4009ECD87 /* Images.xcassets */,
 				1F5DF0E4197EE96E0060633D /* MainViewController.swift */,
 				1FD787B019800D1D00681DDB /* PointAlong */,
 				1FD787AF19800D0600681DDB /* SimpleMap */,
 				1FD787B119800D2500681DDB /* Suggest */,
+				4B6D8D3319878680007CC028 /* QueryWithCompletion */,
 				1F845BE4197EE8A4009ECD87 /* Supporting Files */,
 			);
 			path = "swift-samples";
