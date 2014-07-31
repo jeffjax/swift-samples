@@ -14,9 +14,8 @@ extension AGSMapView {
     //
     func zoomToExpandedEnvelope(envelope: AGSEnvelope, factor: Double) {
         let copy = envelope.mutableCopy() as AGSMutableEnvelope
-        copy.expandByFactor(factor)  // TODO - offset the envelope to account for toolbars, other views
+        copy.expandByFactor(factor)  // TODO: - offset the envelope to account for toolbars, other views
         self.zoomToEnvelope(copy, animated: true)
-        
     }
 }
 

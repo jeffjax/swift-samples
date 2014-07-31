@@ -8,7 +8,7 @@
 
 import UIKit
 
-var popoverHandle : UInt8 = 0  // TODO - make this a private class variable
+var popoverHandle : UInt8 = 0  // TODO: - make this a private class variable
 
 extension UIViewController : UIPopoverControllerDelegate {
     
